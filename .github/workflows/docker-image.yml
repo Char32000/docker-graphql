@@ -25,6 +25,12 @@ jobs:
         echo "iniciando login"
         docker login -u charly32000 -p $DOCKER_PASSWORD
         echo "fin login"
+    - name: Build Docker image
+      run: |
+        docker build -t charly32000/docker-graphql:0.0.2 .
+    - name: Push Docker image
+      run: |
+        docker push charly32000/docker-graphql:0.0.2 .
     
  #   - name: Build the Docker image
  #     run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
